@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
 
+import './App.css';
+import { useState } from 'react';
 function App() {
+  const [count,setCount]=useState(0)
+  function increment(){
+      setCount(count+1);
+  }
+  const decrement=()=>{
+    setCount(count-1);
+  }
+  const Reset=()=>{
+    setCount(0)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div>
+       <button onClick={increment}>+</button>
+      <span>{count}</span>
+      <button onClick={decrement}>-</button>
+
     </div>
+    <div>
+    <button onClick={Reset}>reset</button>
+    </div>
+   
+    </>
   );
 }
 
 export default App;
+// hooks cant be used inside classes
+//cant be used in conditional statement
